@@ -6,10 +6,10 @@ const SIGNIN = require("./signinModel/signinModel")
 const REGISTER = require("../register/registerModel/registerModel")
 
 router.post("/signin", async(req, res) => {
-    const {email, password} = req.body
     try{
-        const userEmail = await REGISTER.findOne({Email: email})
-        if(!email){
+        const {email, password} = req.body
+        const userEmail = await REGISTER.findOne({email: email})
+        if(!email || !userEmail){
             console.log("user doesn't exist, please REGISTER")
             return res.status(422).send("user doesn't exist, please REGISTER")
         }
