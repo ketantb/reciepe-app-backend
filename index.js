@@ -9,8 +9,10 @@ require("./connectionDB")
 
 require("./register/registerModel/registerModel")
 require("./signin/signinModel/signinModel")
+require("./reciepe/createreciepeModel/reciepeModel")
 app.use(require("./register/register"))
 app.use(require("./signin/signin"))
+app.use(require("./reciepe/createreciepe"))
 
 app.get('/', (req, res) => {
     res.send("Welcome to reciepe App Backend")
